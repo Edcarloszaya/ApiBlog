@@ -1,0 +1,38 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Distribuição de pacotes
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Instalação de dependências
+*.egg-info/
+dist/
+build/
+
+# Arquivos de configuração do IDE
+.idea/
+.vscode/
+
+# Arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Arquivos de teste
+.coverage
+.tox/
+.nosetests.xml
+coverage.xml
+*.cover
+
+# Outros
+*.sqlite3
+*.db
