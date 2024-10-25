@@ -5,133 +5,147 @@ Sample solution for the [[Blogging Platform API](https://roadmap.sh/projects/blo
 API desenvolvida em Django para gerenciar criacao e atualizacao de posts
 
 ## Índice
+
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
 - [Configuração](#configuração)
 - [Como Usar](#como-usar)
 
-
 ## Pré-requisitos
 
-- Python  = "^3.12"
+- Python = "^3.12"
 - Poetry
 
 ## Instalação
 
 1. Clone o repositório:
 
-    ```bash
-    git clone https://github.com/Edcarloszaya/ApiBlog.git
-    ```
+   ```bash
+   git clone https://github.com/Edcarloszaya/ApiBlog.git
+   ```
 
 2. Entre na pasta do projeto:
 
-    ```bash
-    cd ApiBlog
-    ```
+   ```bash
+   cd ApiBlog
+   ```
 
 3. Instale as dependências com Poetry :
-    
-    se nao tiver o poetry instale
-     ```bash
-    pip install poetry
-    ```
-    Instale as depencias
-    ```bash
-    poetry install
-    ```
+
+   se nao tiver o poetry instale
+
+   ```bash
+   pip install poetry
+   ```
+
+   Instale as depencias
+
+   ```bash
+   poetry install
+   ```
 
 4. Ative o ambiente virtual gerenciado pelo Poetry:
 
-    ```bash
-    poetry shell
-    ```
+   ```bash
+   poetry shell
+   ```
 
 ## Configuração
 
-
 1. Rode as migrações do banco de dados:
 
-    ```bash
-    poetry python manage.py migrate
-    ```
+   ```bash
+   poetry python manage.py migrate
+   ```
 
 ## Como Usar
 
 1. Para rodar o servidor local, use:
 
-    ```bash
-    poetry python manage.py runserver
-    ```
-2.   Acesse a api no navegador :
+   ```bash
+   poetry python manage.py runserver
+   ```
+
+2. Acesse a api no navegador :
+
 
     http://127.0.0.1:8000/posts/
 
     vai ser renderizado uma interface intuitiva pra fazer o crud na api
 
-    exemplo  pra cria o post : 
-
+    exemplo  pra cria o post :
+    ```
     {
     "title": "My First Blog Post",
     "content": "This is the content of my first blog post.",
     "category": "Technology",
     "tags": ["Tech", "Programming"]
     }
+    ```
 
 ## Como Testa use Postman ou Insomnia:
-1. Criar  post:
-    POST  http://127.0.0.1:8000/posts/
 
-    json body:
-
-    {
-    "title": "My First Blog Post",
-    "content": "This is the content of my first blog post.",
-    "category": "Technology",
-    "tags": ["Tech", "Programming"]
-    }
-
+1. Criar post:
+   ```
+   POST  http://127.0.0.1:8000/posts/
+   ```
+   json body:
+   ```
+   {
+   "title": "My First Blog Post",
+   "content": "This is the content of my first blog post.",
+   "category": "Technology",
+   "tags": ["Tech", "Programming"]
+   }
+   ```
 2. Update post:
-    PUT /posts/1
-
-    json body:
-
-    {
-    "title": "My update First Blog Post",
-    "content": "This is the content of my first blog post.",
-    "category": "Technology",
-    "tags": ["Tech", "Programming"]
-    }
-
+   ```
+   PUT /posts/1
+   ```
+   json body:
+   ```
+   {
+   "title": "My update First Blog Post",
+   "content": "This is the content of my first blog post.",
+   "category": "Technology",
+   "tags": ["Tech", "Programming"]
+   }
+   ```
 3. Delete post:
-    DELETE /posts/1
+   `    DELETE /posts/1
+   `
+   4 Lista um post:
+   `    GET /posts/1
+   `
+4. Lista todos os posts:
+   ```
+   GET /posts
+   ```
+5. Filtra post por term:
+   GET /posts?term=term
 
-4 Lista um post:
-    GET /posts/1
+   ```
+   GET /posts?term=tech
+   ```
 
-5. Lista todos os posts:
-    GET /posts
+   return:
+   {
+   "title": "My update First Blog Post",
+   "content": "This is the content of my first blog post.",
+   "category": "Technology",
+   "tags": ["Tech", "Programming"]
+   }
 
-6. Filtra post por term:
-    GET /posts?term=term
+6. Atualiza um unico campo no post:
 
-    GET /posts?term=tech
+   ```
+   PATH /posts/1
+   ```
 
-    return:
-    {
-    "title": "My update First Blog Post",
-    "content": "This is the content of my first blog post.",
-    "category": "Technology",
-    "tags": ["Tech", "Programming"]
-    }
+   json body:
 
-2. Atualiza um unico campo no post:
-    PATH /posts/1
-
-    json body:
-
-    {
-    "tags": ["Python", "Django"]
-    }
-
-    
+   ```
+   {
+   "tags": ["Python", "Django"]
+   }
+   ```
